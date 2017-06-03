@@ -7,13 +7,19 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
-    
+
     <%# render 'shared/social_metatags' %>
     <title><%= content_for?(:title) ? content_for(:title) : 'HOME PAGE' %></title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <style>
+       #map {
+        height: 400px;
+        width: 100%;
+       }
+    </style>
   </head>
 
   <body>
