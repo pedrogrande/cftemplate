@@ -1,5 +1,5 @@
 # README
-
+```
 <script>
   function initMap() {
     var uluru = {lat: -25.363, lng: 131.044};
@@ -16,3 +16,4 @@
 <script async defer
 src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBEZ0OeuPerGMShqXPMxyCuetBvpZB_TjQ&callback=initMap">
 </script>
+```
