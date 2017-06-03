@@ -1,0 +1,85 @@
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to DeviseCreateUsers (20170603043656)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mselect sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170603043656"]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2017-06-03 04:43:07.838639"], ["updated_at", "2017-06-03 04:43:07.838639"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+Started GET "/" for 127.0.0.1 at 2017-06-03 14:44:11 +1000
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (24.4ms)
+Completed 500 Internal Server Error in 17170ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (couldn't find file 'tether' with type 'application/javascript'
+Checked in these paths: 
+  /Users/pete/apps/cftemplate/app/assets/config
+  /Users/pete/apps/cftemplate/app/assets/images
+  /Users/pete/apps/cftemplate/app/assets/javascripts
+  /Users/pete/apps/cftemplate/app/assets/stylesheets
+  /Users/pete/apps/cftemplate/vendor/assets/javascripts
+  /Users/pete/apps/cftemplate/vendor/assets/stylesheets
+  /Users/pete/.rvm/gems/ruby-2.3.3@rails5/gems/jquery-rails-4.3.1/vendor/assets/javascripts
+  /Users/pete/.rvm/gems/ruby-2.3.3@rails5/gems/cloudinary-1.8.1/vendor/assets/html
+  /Users/pete/.rvm/gems/ruby-2.3.3@rails5/gems/cloudinary-1.8.1/vendor/assets/javascripts
+  /Users/pete/.rvm/gems/ruby-2.3.3@rails5/gems/coffee-rails-4.2.2/lib/assets/javascripts
+  /Users/pete/.rvm/gems/ruby-2.3.3@rails5/gems/actioncable-5.0.3/lib/assets/compiled
+  /Users/pete/.rvm/gems/ruby-2.3.3@rails5/gems/turbolinks-source-5.0.3/lib/assets/javascripts
+  /Users/pete/.rvm/gems/ruby-2.3.3@rails5/gems/bootstrap-4.0.0.alpha6/assets/stylesheets
+  /Users/pete/.rvm/gems/ruby-2.3.3@rails5/gems/bootstrap-4.0.0.alpha6/assets/javascripts
+  /Users/pete/.rvm/gems/ruby-2.3.3@rails5/gems/font-awesome-sass-4.7.0/assets/stylesheets
+  /Users/pete/.rvm/gems/ruby-2.3.3@rails5/gems/font-awesome-sass-4.7.0/assets/fonts):
+    12:     <title><%= content_for?(:title) ? content_for(:title) : 'HOME PAGE' %></title>
+    13:     <%= csrf_meta_tags %>
+    14: 
+    15:     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    16:     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    17:   </head>
+    18: 
+  
+app/assets/javascripts/application.js:15
+app/views/layouts/application.html.erb:15:in `_app_views_layouts_application_html_erb__2181113462766909957_70329944767280'
+  Rendering /Users/pete/.rvm/gems/ruby-2.3.3@rails5/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /Users/pete/.rvm/gems/ruby-2.3.3@rails5/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/pete/.rvm/gems/ruby-2.3.3@rails5/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (9.2ms)
+  Rendering /Users/pete/.rvm/gems/ruby-2.3.3@rails5/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/pete/.rvm/gems/ruby-2.3.3@rails5/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.0ms)
+  Rendering /Users/pete/.rvm/gems/ruby-2.3.3@rails5/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/pete/.rvm/gems/ruby-2.3.3@rails5/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.7ms)
+  Rendered /Users/pete/.rvm/gems/ruby-2.3.3@rails5/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (127.0ms)
