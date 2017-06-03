@@ -83,3 +83,13 @@ app/views/layouts/application.html.erb:15:in `_app_views_layouts_application_htm
   Rendering /Users/pete/.rvm/gems/ruby-2.3.3@rails5/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
   Rendered /Users/pete/.rvm/gems/ruby-2.3.3@rails5/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.7ms)
   Rendered /Users/pete/.rvm/gems/ruby-2.3.3@rails5/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (127.0ms)
+Started GET "/" for 127.0.0.1 at 2017-06-03 14:49:02 +1000
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (3.7ms)
+  Rendered interface/_navbar.html.erb (6.4ms)
+  Rendered interface/_footer.html.erb (1.6ms)
+Completed 200 OK in 7769ms (Views: 7751.5ms | ActiveRecord: 0.0ms)
+
+
